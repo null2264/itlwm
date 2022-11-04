@@ -27,6 +27,9 @@ xcodebuild -project itlwm.xcodeproj -target fw_gen -configuration Release -sdk m
 ## AirportItlwm.kext - Monterey
 xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Monterey -configuration Release -sdk macosx
 
+## AirportItlwm.kext - Ventura
+xcodebuild -project itlwm.xcodeproj -target AirportItlwm-Ventura -configuration Release -sdk macosx
+
 # Location of Kexts
 echo "You kexts are in build/Release!!"
 echo " "
