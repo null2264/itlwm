@@ -37,6 +37,10 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/acidanthera/MacKernelSDK.git
 
+    - name: Delete unused firmware
+      run: |
+        find itlwm/firmware/ -type f ! -name 'iwm-8000C*' -delete
+
     - name: Build itlwm
       run: |
         xcodebuild -scheme itlwm -configuration Debug -derivedDataPath build GIT_COMMIT=_${SHORT_SHA} | xcpretty && exit ${PIPESTATUS[0]}
