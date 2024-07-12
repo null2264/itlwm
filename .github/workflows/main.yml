@@ -15,7 +15,7 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: '5'
 
@@ -70,18 +70,19 @@ jobs:
         git log -"5" --format="- %H %s" | sed '/^$/d' >> ReleaseNotes.md
 
     - name: Delete Old Prerelease
-      uses: dev-drprasad/delete-tag-and-release@v0.2.1
-      with:
-        tag_name: ${{ env.OLD_PRE_TAG }}
+      run: |
+        gh release delete ${{ env.OLD_PRE_TAG }} --cleanup-tag
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish GitHub Release
       if: contains(github.event.head_commit.message, 'Bump version') == false
-      uses: ncipollo/release-action@v1.12.0
+      uses: softprops/action-gh-release@v2
       with:
         prerelease: true
-        bodyFile: ReleaseNotes.md
-        artifacts: "${{ env.BUILD_OUTPUT }}/*.zip"
-        tag: "v${{ env.ITLWM_VER }}-alpha"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        body: ReleaseNotes.md
+        files: ${{ env.BUILD_OUTPUT }}/*.zip
+        tag_name: v${{ env.ITLWM_VER }}-alpha
+        name: v{{ env.ITLWM_VER }} (Alpha)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
