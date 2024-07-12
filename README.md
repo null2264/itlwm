@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This repo is used to build stripped down version of `itlwm`, check out the [original repo](https://github.com/OpenIntelWireless/itlwm) instead!
+
 # itlwm
 
 **An Intel Wi-Fi Adapter Kernel Extension for macOS, based on the OpenBSD Project.**
