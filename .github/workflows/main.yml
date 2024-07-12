@@ -80,9 +80,9 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         prerelease: true
-        body: ReleaseNotes.md
+        body_path: ReleaseNotes.md
         files: ${{ env.BUILD_OUTPUT }}/*.zip
         tag_name: v${{ env.ITLWM_VER }}-alpha
-        name: v{{ env.ITLWM_VER }} (Alpha)
+        name: v${{ env.ITLWM_VER }} (Alpha)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
