@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This repo is used to build stripped down version of `itlwm`, check out the [original repo](https://github.com/OpenIntelWireless/itlwm) instead!
+> This repo is used to build stripped down version of `itlwm` for my specific wireless card, check out the [original repo](https://github.com/OpenIntelWireless/itlwm) instead!
 
 # itlwm
 
