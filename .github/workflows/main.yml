@@ -39,7 +39,7 @@ jobs:
 
     - name: Delete unused firmware
       run: |
-        rm include/FwBinary.cpp  # generated firmware
+        rm -f include/FwBinary.cpp  # generated firmware
         # NOTE: My card is "iwm-8000C", change it to your card if it's different
         find itlwm/firmware/ -type f ! -name 'iwm-8000C*' -delete
 
