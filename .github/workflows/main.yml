@@ -57,6 +57,7 @@ jobs:
           zip -r itlwm-v${ITLWM_VER}-DEBUG-alpha-${SHORT_SHA}.zip itlwm.kext
           while read -r tgt ; do
             zip -r AirportItlwm-${tgt// /_}-v${ITLWM_VER}-DEBUG-alpha-${SHORT_SHA}.zip "$tgt"
+            zip -r AirportItlwm-bundled-v${ITLWM_VER}-DEBUG-alpha-${SHORT_SHA}.zip "$tgt"
           done < <(find . -mindepth 1 -maxdepth 1 -type d -not -path "*.kext" | cut -c 3-)
         cd -
 
