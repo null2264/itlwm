@@ -62,6 +62,7 @@ jobs:
         cd -
 
     - name: Delete Old Prerelease
+      if: env.OLD_PRE_TAG != 'NULL'
       run: |
         gh release delete ${{ env.OLD_PRE_TAG }} --cleanup-tag
       env:
